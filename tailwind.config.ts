@@ -24,6 +24,24 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				
+				// Tech platform brand colors
+				'tech-primary': 'hsl(var(--tech-primary))',
+				'tech-primary-light': 'hsl(var(--tech-primary-light))',
+				'tech-secondary': 'hsl(var(--tech-secondary))',
+				'tech-accent': 'hsl(var(--tech-accent))',
+				
+				// Difficulty colors
+				easy: 'hsl(var(--easy))',
+				medium: 'hsl(var(--medium))',
+				hard: 'hsl(var(--hard))',
+				
+				// Company colors
+				google: 'hsl(var(--google))',
+				meta: 'hsl(var(--meta))',
+				amazon: 'hsl(var(--amazon))',
+				microsoft: 'hsl(var(--microsoft))',
+				apple: 'hsl(var(--apple))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'

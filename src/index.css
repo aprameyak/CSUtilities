@@ -2,14 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* DSA Practice Platform Design System - All colors MUST be HSL */
 
 @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
+    
+    /* Brand colors for DSA platform */
+    --tech-primary: 213 94% 50%;
+    --tech-primary-light: 213 94% 60%;
+    --tech-secondary: 142 76% 36%;
+    --tech-accent: 271 91% 65%;
+    
+    /* Difficulty colors */
+    --easy: 142 76% 36%;
+    --medium: 45 93% 47%;
+    --hard: 0 84% 60%;
+    
+    /* Company colors */
+    --google: 4 90% 58%;
+    --meta: 220 90% 56%;
+    --amazon: 39 100% 50%;
+    --microsoft: 213 94% 50%;
+    --apple: 0 0% 0%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--tech-primary)), hsl(var(--tech-accent)));
+    --gradient-card: linear-gradient(135deg, hsl(var(--background)), hsl(var(--card)));
+    
+    /* Shadows */
+    --shadow-tech: 0 4px 20px hsl(var(--tech-primary) / 0.15);
+    --shadow-card: 0 2px 10px hsl(var(--foreground) / 0.1);
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
