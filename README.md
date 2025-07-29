@@ -1,73 +1,189 @@
-# Welcome to your Lovable project
+# CSUtilities - Computer Science Learning Platform
 
-## Project info
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
 
-**URL**: https://lovable.dev/projects/5a558109-d3d7-46b6-8d86-5eb4668c3d52
+A comprehensive platform for Computer Science students and professionals to practice Data Structures & Algorithms, explore university rankings, and research tech company prestige.
 
-## How can I edit this code?
+## 🚀 Features
 
-There are several ways of editing your application.
+### 📚 DSA Practice Hub
+- **Curated LeetCode Problems**: Hand-picked problems organized by difficulty and company tags
+- **Smart Filtering**: Search by problem name, topics, or filter by difficulty and company
+- **Direct Integration**: One-click access to LeetCode problems
+- **Company Tagging**: See which companies frequently ask specific problems
 
-**Use Lovable**
+### 🎓 University Rankings
+- **Top CS Universities**: Comprehensive rankings based on CSRankings data
+- **Global Coverage**: Universities from around the world
+- **Detailed Profiles**: Scores, locations, and direct website links
+- **Country Filtering**: Filter universities by country
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/5a558109-d3d7-46b6-8d86-5eb4668c3d52) and start prompting.
+### 🏢 Company Rankings
+- **Tech Company Prestige**: Ranked by desirability and prestige scores
+- **Industry Categorization**: Filter by industry (Technology, AI, Fintech, etc.)
+- **Problem Integration**: See how many LeetCode problems each company uses
+- **Location Data**: Company headquarters and office locations
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠️ Tech Stack
 
-**Use your preferred IDE**
+- **Frontend**: React 18 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS with custom design system
+- **UI Components**: shadcn/ui (Radix UI primitives)
+- **Routing**: React Router DOM
+- **State Management**: React Query
+- **Icons**: Lucide React
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 📦 Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Prerequisites
+- Node.js (v18 or higher)
+- npm or yarn
 
-Follow these steps:
+### Quick Start
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/CSUtilities.git
+   cd CSUtilities
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+3. **Start development server**
+   ```bash
+   npm run dev
+   ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+4. **Open your browser** and navigate to `http://localhost:5173`
+
+## 🚀 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm run type-check` - Run TypeScript type checking
+
+## 📁 Project Structure
+
+```
+CSUtilities/
+├── src/
+│   ├── components/          # React components
+│   │   ├── ui/             # shadcn/ui components
+│   │   ├── DSAPractice.tsx # DSA practice component
+│   │   ├── UniversityRankings.tsx
+│   │   └── CompanyRankings.tsx
+│   ├── data/               # Mock data and APIs
+│   ├── types/              # TypeScript type definitions
+│   ├── pages/              # Page components
+│   └── lib/                # Utility functions
+├── public/                 # Static assets
+├── CONTRIBUTING.md         # Contribution guidelines
+└── LICENSE                 # MIT License
 ```
 
-**Edit a file directly in GitHub**
+## 🎯 Key Features
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### DSA Practice
+- **10+ Curated Problems**: Classic LeetCode problems with company tags
+- **Difficulty Levels**: Easy, Medium, Hard with color coding
+- **Topic Tags**: Array, Hash Table, Dynamic Programming, etc.
+- **Company Integration**: See which companies ask each problem
 
-**Use GitHub Codespaces**
+### University Rankings
+- **Top 10 Universities**: MIT, Stanford, CMU, Berkeley, Harvard, etc.
+- **Global Rankings**: US, UK, Switzerland, Canada
+- **Score System**: 0-100 prestige scores
+- **Direct Links**: Visit university websites
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Company Rankings
+- **Tech Giants**: Google, Apple, Microsoft, Meta, Amazon
+- **Emerging Companies**: OpenAI, Tesla, Stripe, Nvidia
+- **Prestige Scores**: 83-98 range with visual indicators
+- **Problem Count**: Shows LeetCode problems per company
 
-## What technologies are used for this project?
+## 🔧 Development
 
-This project is built with:
+### Adding New Problems
+1. Edit `src/data/mockData.ts`
+2. Add new problem to `mockProblems` array
+3. Include company tags and difficulty level
+4. Add relevant topics
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Adding Universities
+1. Add university data to `mockUniversities` array
+2. Include rank, country, score, and website
+3. Ensure proper ranking order
 
-## How can I deploy this project?
+### Adding Companies
+1. Add company data to `mockCompanies` array
+2. Include prestige score, industry, and location
+3. Link to existing LeetCode problems
 
-Simply open [Lovable](https://lovable.dev/projects/5a558109-d3d7-46b6-8d86-5eb4668c3d52) and click on Share -> Publish.
+## 🤝 Contributing
 
-## Can I connect a custom domain to my Lovable project?
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
-Yes, you can!
+### Quick Contribution Guide
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 📄 License
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🌟 Acknowledgments
+
+- **LeetCode** for problem content and structure
+- **CSRankings** for university ranking data
+- **shadcn/ui** for the excellent component library
+- **Vite** for the fast build tool
+- **Tailwind CSS** for the utility-first CSS framework
+
+## 📞 Support
+
+- **Issues**: [GitHub Issues](https://github.com/your-username/CSUtilities/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/your-username/CSUtilities/discussions)
+- **Email**: support@csutilities.com
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+1. Connect your GitHub repository to Vercel
+2. Deploy automatically on push to main branch
+3. Custom domain support available
+
+### Netlify
+1. Build command: `npm run build`
+2. Publish directory: `dist`
+3. Deploy from Git
+
+### GitHub Pages
+1. Build the project: `npm run build`
+2. Deploy `dist` folder to GitHub Pages
+
+## 📈 Roadmap
+
+- [ ] **Real API Integration**: Replace mock data with live APIs
+- [ ] **User Authentication**: Login/signup functionality
+- [ ] **Progress Tracking**: Track DSA problem completion
+- [ ] **Advanced Analytics**: Charts and statistics
+- [ ] **Dark Mode**: Theme switching
+- [ ] **Mobile App**: React Native version
+- [ ] **Problem Solutions**: Add solution explanations
+- [ ] **Interview Prep**: Mock interview features
+
+---
+
+**Made with ❤️ for the Computer Science community**
