@@ -48,7 +48,7 @@ export const DSAPractice = () => {
     <div className="container mx-auto p-6 space-y-6">
       <div className="text-center space-y-4">
         <h2 className="text-4xl font-bold bg-gradient-to-r from-tech-primary to-tech-accent bg-clip-text text-transparent">
-          DSA Practice Hub
+          DSA Practice
         </h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           Master Data Structures & Algorithms with curated LeetCode problems tagged by top tech companies

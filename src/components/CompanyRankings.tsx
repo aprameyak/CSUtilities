@@ -4,8 +4,8 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { ExternalLink, Search, Trophy, MapPin, Code, Building2 } from 'lucide-react';
-import { mockCompanies, mockProblems } from '@/data/mockData';
+import { ExternalLink, Search, Trophy, MapPin, Building2 } from 'lucide-react';
+import { mockCompanies } from '@/data/mockData';
 
 export const CompanyRankings = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -38,12 +38,6 @@ export const CompanyRankings = () => {
     return 'text-muted-foreground';
   };
 
-  const getCompanyProblems = (companyName: string) => {
-    return mockProblems.filter(problem => 
-      problem.companies.includes(companyName)
-    ).length;
-  };
-
   return (
     <div className="container mx-auto p-6 space-y-6">
       <div className="text-center space-y-4">
@@ -51,7 +45,7 @@ export const CompanyRankings = () => {
           Company Prestige Rankings
         </h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Top tech companies ranked by prestige and desirability, with linked LeetCode problems
+          Top tech companies ranked by prestige and desirability
         </p>
       </div>
 
@@ -92,93 +86,64 @@ export const CompanyRankings = () => {
 
       {/* Company Rankings Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredCompanies.map((company) => {
-          const problemCount = getCompanyProblems(company.name);
-          
-          return (
-            <Card key={company.id} className="group hover:shadow-lg transition-all duration-200 hover:-translate-y-1">
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Badge className={getRankBadgeColor(company.rank)}>
-                        <Trophy className="h-3 w-3 mr-1" />
-                        #{company.rank}
-                      </Badge>
-                      <span className={`text-lg font-bold ${getPrestigeColor(company.prestigeScore)}`}>
-                        {company.prestigeScore}/100
-                      </span>
-                    </div>
-                    <CardTitle className="text-xl font-bold">
-                      {company.name}
-                    </CardTitle>
+        {filteredCompanies.map((company) => (
+          <Card key={company.id} className="group hover:shadow-lg transition-all duration-200 hover:-translate-y-1">
+            <CardHeader>
+              <div className="flex items-start justify-between">
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Badge className={getRankBadgeColor(company.rank)}>
+                      <Trophy className="h-3 w-3 mr-1" />
+                      #{company.rank}
+                    </Badge>
+                    <span className={`text-lg font-bold ${getPrestigeColor(company.prestigeScore)}`}>
+                      {company.prestigeScore}/100
+                    </span>
                   </div>
+                  <CardTitle className="text-xl font-bold">
+                    {company.name}
+                  </CardTitle>
                 </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <Building2 className="h-4 w-4" />
-                    <span className="text-sm">{company.industry}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <MapPin className="h-4 w-4" />
-                    <span className="text-sm">{company.location}</span>
-                  </div>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-muted-foreground">
+                  <Building2 className="h-4 w-4" />
+                  <span className="text-sm">{company.industry}</span>
                 </div>
+                <div className="flex items-center gap-2 text-muted-foreground">
+                  <MapPin className="h-4 w-4" />
+                  <span className="text-sm">{company.location}</span>
+                </div>
+              </div>
 
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm font-medium">Prestige Score</span>
-                    <span className="text-sm font-bold">{company.prestigeScore}/100</span>
-                  </div>
-                  <div className="w-full bg-muted rounded-full h-2">
-                    <div 
-                      className="bg-gradient-to-r from-tech-primary to-tech-accent h-2 rounded-full transition-all duration-300"
-                      style={{ width: `${company.prestigeScore}%` }}
-                    />
-                  </div>
+              <div>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-sm font-medium">Prestige Score</span>
+                  <span className="text-sm font-bold">{company.prestigeScore}/100</span>
                 </div>
+                <div className="w-full bg-muted rounded-full h-2">
+                  <div 
+                    className="bg-gradient-to-r from-tech-primary to-tech-accent h-2 rounded-full transition-all duration-300"
+                    style={{ width: `${company.prestigeScore}%` }}
+                  />
+                </div>
+              </div>
 
-                {problemCount > 0 && (
-                  <div className="bg-muted/50 rounded-lg p-3">
-                    <div className="flex items-center gap-2 text-sm">
-                      <Code className="h-4 w-4 text-tech-primary" />
-                      <span className="font-medium">{problemCount} LeetCode Problems</span>
-                    </div>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      Practice problems tagged by this company
-                    </p>
-                  </div>
+              <div className="flex gap-2">
+                {company.website && (
+                  <Button asChild variant="outline" size="sm" className="flex-1">
+                    <a href={company.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                      Website
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
+                  </Button>
                 )}
-
-                <div className="flex gap-2">
-                  {company.website && (
-                    <Button asChild variant="outline" size="sm" className="flex-1">
-                      <a href={company.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                        Website
-                        <ExternalLink className="h-3 w-3" />
-                      </a>
-                    </Button>
-                  )}
-                  {problemCount > 0 && (
-                    <Button 
-                      size="sm" 
-                      className="flex-1"
-                      onClick={() => {
-                        // This would navigate to DSA tab with company filter
-                        // For now, just scroll to top
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                      }}
-                    >
-                      View Problems
-                    </Button>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
-          );
-        })}
+              </div>
+            </CardContent>
+          </Card>
+        ))}
       </div>
 
       {filteredCompanies.length === 0 && (

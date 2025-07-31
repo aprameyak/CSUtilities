@@ -13,7 +13,7 @@ export const Navigation = ({ activeTab, onTabChange }: NavigationProps) => {
       <div className="container flex h-16 items-center">
         <div className="mr-8">
           <h1 className="text-2xl font-bold bg-gradient-to-r from-tech-primary to-tech-accent bg-clip-text text-transparent">
-            DSA Platform
+            CS Utilities
           </h1>
         </div>
         
