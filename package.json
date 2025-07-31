@@ -44,11 +44,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/CSUtilities.git"
+    "url": "https://github.com/aprameyak/CSUtilities.git"
   },
   "homepage": "https://csutilities.com",
   "bugs": {
-    "url": "https://github.com/your-username/CSUtilities/issues"
+    "url": "https://github.com/aprameyak/CSUtilities/issues"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

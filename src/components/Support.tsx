@@ -15,19 +15,19 @@ import {
 
 export const Support = () => {
   const handleEmailClick = () => {
-    window.location.href = 'mailto:support@csutilities.com?subject=CSUtilities Support Request';
+    window.location.href = 'mailto:aprameyakannan@gmail.com?subject=CSUtilities Support Request';
   };
 
   const handleGithubClick = () => {
-    window.open('https://github.com/your-username/CSUtilities', '_blank');
+    window.open('https://github.com/aprameyak/CSUtilities', '_blank');
   };
 
   const handleIssuesClick = () => {
-    window.open('https://github.com/your-username/CSUtilities/issues', '_blank');
+    window.open('https://github.com/aprameyak/CSUtilities/issues', '_blank');
   };
 
   const handleDiscussionsClick = () => {
-    window.open('https://github.com/your-username/CSUtilities/discussions', '_blank');
+    window.open('https://github.com/aprameyak/CSUtilities/discussions', '_blank');
   };
 
   return (
@@ -54,10 +54,10 @@ export const Support = () => {
             <p className="text-sm text-muted-foreground mb-4">
               Get direct support via email
             </p>
-            <Button onClick={handleEmailClick} className="w-full">
-              <Mail className="h-4 w-4 mr-2" />
-              support@csutilities.com
-            </Button>
+                         <Button onClick={handleEmailClick} className="w-full">
+               <Mail className="h-4 w-4 mr-2" />
+               aprameyakannan@gmail.com
+             </Button>
           </CardContent>
         </Card>
 
@@ -127,21 +127,21 @@ export const Support = () => {
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <Mail className="h-4 w-4 text-muted-foreground" />
-                <div>
-                  <p className="font-medium">Email</p>
-                  <p className="text-sm text-muted-foreground">support@csutilities.com</p>
-                </div>
-              </div>
+                             <div className="flex items-center gap-3">
+                 <Mail className="h-4 w-4 text-muted-foreground" />
+                 <div>
+                   <p className="font-medium">Email</p>
+                   <p className="text-sm text-muted-foreground">aprameyakannan@gmail.com</p>
+                 </div>
+               </div>
               
-              <div className="flex items-center gap-3">
-                <Github className="h-4 w-4 text-muted-foreground" />
-                <div>
-                  <p className="font-medium">GitHub</p>
-                  <p className="text-sm text-muted-foreground">github.com/your-username/CSUtilities</p>
-                </div>
-              </div>
+                             <div className="flex items-center gap-3">
+                 <Github className="h-4 w-4 text-muted-foreground" />
+                 <div>
+                   <p className="font-medium">GitHub</p>
+                   <p className="text-sm text-muted-foreground">github.com/aprameyak/CSUtilities</p>
+                 </div>
+               </div>
               
               <div className="flex items-center gap-3">
                 <Globe className="h-4 w-4 text-muted-foreground" />
@@ -195,10 +195,10 @@ export const Support = () => {
             <div className="border-l-4 border-tech-primary pl-4">
               <h4 className="font-semibold">How do I contribute to the project?</h4>
               <p className="text-sm text-muted-foreground mt-1">
-                Fork the repository, make your changes, and submit a pull request. 
-                See our <a href="https://github.com/your-username/CSUtilities/blob/main/CONTRIBUTING.md" 
-                className="text-tech-primary hover:underline" target="_blank" rel="noopener noreferrer">
-                Contributing Guidelines</a> for more details.
+                                 Fork the repository, make your changes, and submit a pull request. 
+                 See our <a href="https://github.com/aprameyak/CSUtilities/blob/main/CONTRIBUTING.md" 
+                 className="text-tech-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                 Contributing Guidelines</a> for more details.
               </p>
             </div>
             

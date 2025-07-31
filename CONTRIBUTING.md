@@ -25,7 +25,7 @@ Before contributing, please:
 
 1. **Clone your fork:**
    ```bash
-   git clone https://github.com/your-username/CSUtilities.git
+   git clone https://github.com/aprameyak/CSUtilities.git
    cd CSUtilities
    ```
 

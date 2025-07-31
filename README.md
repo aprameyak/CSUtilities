@@ -47,7 +47,7 @@ A comprehensive platform for Computer Science students and professionals to prac
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/CSUtilities.git
+   git clone https://github.com/aprameyak/CSUtilities.git
    cd CSUtilities
    ```
 
@@ -153,8 +153,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-- **Issues**: [GitHub Issues](https://github.com/your-username/CSUtilities/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/your-username/CSUtilities/discussions)
+- **Issues**: [GitHub Issues](https://github.com/aprameyak/CSUtilities/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/aprameyak/CSUtilities/discussions)
 - **Email**: support@csutilities.com
 
 ## Deployment
