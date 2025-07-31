@@ -3,6 +3,7 @@ import { Navigation } from '@/components/Navigation';
 import { DSAPractice } from '@/components/DSAPractice';
 import { UniversityRankings } from '@/components/UniversityRankings';
 import { CompanyRankings } from '@/components/CompanyRankings';
+import { Support } from '@/components/Support';
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('dsa');
@@ -15,6 +16,8 @@ const Index = () => {
         return <UniversityRankings />;
       case 'companies':
         return <CompanyRankings />;
+      case 'support':
+        return <Support />;
       default:
         return <DSAPractice />;
     }

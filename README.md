@@ -7,27 +7,27 @@
 
 A comprehensive platform for Computer Science students and professionals to practice Data Structures & Algorithms, explore university rankings, and research tech company prestige.
 
-## 🚀 Features
+## Features
 
-### 📚 DSA Practice Hub
+### DSA Practice Hub
 - **Curated LeetCode Problems**: Hand-picked problems organized by difficulty and company tags
 - **Smart Filtering**: Search by problem name, topics, or filter by difficulty and company
 - **Direct Integration**: One-click access to LeetCode problems
 - **Company Tagging**: See which companies frequently ask specific problems
 
-### 🎓 University Rankings
+### University Rankings
 - **Top CS Universities**: Comprehensive rankings based on CSRankings data
 - **Global Coverage**: Universities from around the world
 - **Detailed Profiles**: Scores, locations, and direct website links
 - **Country Filtering**: Filter universities by country
 
-### 🏢 Company Rankings
+### Company Rankings
 - **Tech Company Prestige**: Ranked by desirability and prestige scores
-- **Industry Categorization**: Filter by industry (Technology, AI, Fintech, etc.)
+- **Industry Categorization**: Filter by industry (Technology, Software, Fintech, etc.)
 - **Problem Integration**: See how many LeetCode problems each company uses
 - **Location Data**: Company headquarters and office locations
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend**: React 18 with TypeScript
 - **Build Tool**: Vite
@@ -37,7 +37,7 @@ A comprehensive platform for Computer Science students and professionals to prac
 - **State Management**: React Query
 - **Icons**: Lucide React
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 - Node.js (v18 or higher)
@@ -63,7 +63,7 @@ A comprehensive platform for Computer Science students and professionals to prac
 
 4. **Open your browser** and navigate to `http://localhost:5173`
 
-## 🚀 Available Scripts
+## Available Scripts
 
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
@@ -71,7 +71,7 @@ A comprehensive platform for Computer Science students and professionals to prac
 - `npm run lint` - Run ESLint
 - `npm run type-check` - Run TypeScript type checking
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 CSUtilities/
@@ -90,7 +90,7 @@ CSUtilities/
 └── LICENSE                 # MIT License
 ```
 
-## 🎯 Key Features
+## Key Features
 
 ### DSA Practice
 - **10+ Curated Problems**: Classic LeetCode problems with company tags
@@ -106,11 +106,11 @@ CSUtilities/
 
 ### Company Rankings
 - **Tech Giants**: Google, Apple, Microsoft, Meta, Amazon
-- **Emerging Companies**: OpenAI, Tesla, Stripe, Nvidia
+- **Emerging Companies**: Tesla, Stripe, Nvidia, Palantir
 - **Prestige Scores**: 83-98 range with visual indicators
 - **Problem Count**: Shows LeetCode problems per company
 
-## 🔧 Development
+## Development
 
 ### Adding New Problems
 1. Edit `src/data/mockData.ts`
@@ -128,7 +128,7 @@ CSUtilities/
 2. Include prestige score, industry, and location
 3. Link to existing LeetCode problems
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
 
@@ -139,11 +139,11 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 4. Test thoroughly
 5. Submit a pull request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🌟 Acknowledgments
+## Acknowledgments
 
 - **LeetCode** for problem content and structure
 - **CSRankings** for university ranking data
@@ -151,13 +151,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Vite** for the fast build tool
 - **Tailwind CSS** for the utility-first CSS framework
 
-## 📞 Support
+## Support
 
 - **Issues**: [GitHub Issues](https://github.com/your-username/CSUtilities/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/your-username/CSUtilities/discussions)
 - **Email**: support@csutilities.com
 
-## 🚀 Deployment
+## Deployment
 
 ### Vercel (Recommended)
 1. Connect your GitHub repository to Vercel
@@ -173,7 +173,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 1. Build the project: `npm run build`
 2. Deploy `dist` folder to GitHub Pages
 
-## 📈 Roadmap
+## Roadmap
 
 - [ ] **Real API Integration**: Replace mock data with live APIs
 - [ ] **User Authentication**: Login/signup functionality
@@ -186,4 +186,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Made with ❤️ for the Computer Science community**
+**Made with love for the Computer Science community**

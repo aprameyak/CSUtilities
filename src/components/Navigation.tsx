@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Code, GraduationCap, Building2 } from 'lucide-react';
+import { Code, GraduationCap, Building2, HelpCircle } from 'lucide-react';
 
 interface NavigationProps {
   activeTab: string;
@@ -43,6 +43,15 @@ export const Navigation = ({ activeTab, onTabChange }: NavigationProps) => {
           >
             <Building2 className="h-4 w-4" />
             Company Rankings
+          </Button>
+          
+          <Button
+            variant={activeTab === 'support' ? 'default' : 'ghost'}
+            onClick={() => onTabChange('support')}
+            className="flex items-center gap-2"
+          >
+            <HelpCircle className="h-4 w-4" />
+            Support
           </Button>
         </nav>
       </div>

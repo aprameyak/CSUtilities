@@ -555,7 +555,7 @@ export const mockCompanies: Company[] = [
     name: "OpenAI",
     prestigeScore: 86,
     rank: 8,
-    industry: "Artificial Intelligence",
+    industry: "Technology / Software",
     location: "San Francisco, CA",
     website: "https://openai.com"
   },
