@@ -3,6 +3,7 @@ import { Navigation } from '@/components/Navigation';
 import { DSAPractice } from '@/components/DSAPractice';
 import { UniversityRankings } from '@/components/UniversityRankings';
 import { CompanyRankings } from '@/components/CompanyRankings';
+import { Internships } from '@/components/Internships';
 import { Support } from '@/components/Support';
 
 const Index = () => {
@@ -16,6 +17,8 @@ const Index = () => {
         return <UniversityRankings />;
       case 'companies':
         return <CompanyRankings />;
+      case 'internships':
+        return <Internships />;
       case 'support':
         return <Support />;
       default:
