@@ -3,7 +3,8 @@ import { Navigation } from '@/components/Navigation';
 import { DSAPractice } from '@/components/DSAPractice';
 import { UniversityRankings } from '@/components/UniversityRankings';
 import { CompanyRankings } from '@/components/CompanyRankings';
-import { Internships } from '@/components/Internships';
+import { Jobs } from '@/components/Jobs';
+import { Hackathons } from '@/components/Hackathons';
 import { Support } from '@/components/Support';
 
 const Index = () => {
@@ -17,8 +18,10 @@ const Index = () => {
         return <UniversityRankings />;
       case 'companies':
         return <CompanyRankings />;
-      case 'internships':
-        return <Internships />;
+      case 'jobs':
+        return <Jobs />;
+      case 'hackathons':
+        return <Hackathons />;
       case 'support':
         return <Support />;
       default:
