@@ -37,69 +37,17 @@ A comprehensive platform for Computer Science students and professionals to prac
 - **State Management**: React Query
 - **Icons**: Lucide React
 
-## Installation
-
-### Prerequisites
-- Node.js (v18 or higher)
-- npm or yarn
-
-### Quick Start
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/aprameyak/CSUtilities.git
-   cd CSUtilities
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start development server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Open your browser** and navigate to `http://localhost:5173`
-
-## Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
-- `npm run type-check` - Run TypeScript type checking
-
-## Project Structure
-
-```
-CSUtilities/
-├── src/
-│   ├── components/          # React components
-│   │   ├── ui/             # shadcn/ui components
-│   │   ├── DSAPractice.tsx # DSA practice component
-│   │   ├── UniversityRankings.tsx
-│   │   └── CompanyRankings.tsx
-│   ├── data/               # Mock data and APIs
-│   ├── types/              # TypeScript type definitions
-│   ├── pages/              # Page components
-│   └── lib/                # Utility functions
-├── public/                 # Static assets
-├── CONTRIBUTING.md         # Contribution guidelines
-└── LICENSE                 # MIT License
-```
 
 ## Key Features
 
 ### DSA Practice
-- **10+ Curated Problems**: Classic LeetCode problems with company tags
+- **Curated Problems**: Classic LeetCode problems with company tags
 - **Difficulty Levels**: Easy, Medium, Hard with color coding
 - **Topic Tags**: Array, Hash Table, Dynamic Programming, etc.
 - **Company Integration**: See which companies ask each problem
 
 ### University Rankings
-- **Top 10 Universities**: MIT, Stanford, CMU, Berkeley, Harvard, etc.
+- **Top Universities**: MIT, Stanford, CMU, Berkeley, Harvard, etc.
 - **Global Rankings**: US, UK, Switzerland, Canada
 - **Score System**: 0-100 prestige scores
 - **Direct Links**: Visit university websites
@@ -155,23 +103,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Issues**: [GitHub Issues](https://github.com/aprameyak/CSUtilities/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/aprameyak/CSUtilities/discussions)
-- **Email**: support@csutilities.com
-
-## Deployment
-
-### Vercel (Recommended)
-1. Connect your GitHub repository to Vercel
-2. Deploy automatically on push to main branch
-3. Custom domain support available
-
-### Netlify
-1. Build command: `npm run build`
-2. Publish directory: `dist`
-3. Deploy from Git
-
-### GitHub Pages
-1. Build the project: `npm run build`
-2. Deploy `dist` folder to GitHub Pages
 
 ## Roadmap
 
@@ -184,6 +115,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [ ] **Problem Solutions**: Add solution explanations
 - [ ] **Interview Prep**: Mock interview features
 
----
-
-**Made with love for the Computer Science community**
