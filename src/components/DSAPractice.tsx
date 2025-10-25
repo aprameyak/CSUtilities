@@ -200,7 +200,7 @@ export const DSAPractice = () => {
       )}
 
       <div className="text-center text-sm text-muted-foreground">
-        Showing {filteredProblems.length} of {mockProblems.length} problems
+        Showing {filteredProblems.length} of {problems.length} problems
       </div>
     </div>
   );

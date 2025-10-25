@@ -363,10 +363,10 @@ export const Jobs = () => {
                     <MapPin className="h-4 w-4" />
                     <span className="text-sm">{job.location}</span>
                   </div>
-                  {jobType === 'internships' && (
+                  {jobType === 'internships' && 'duration' in job && job.duration && (
                     <div className="flex items-center gap-2 text-muted-foreground">
                       <Calendar className="h-4 w-4" />
-                      <span className="text-sm">{job.duration}</span>
+                      <span className="text-sm">{job.duration as string}</span>
                     </div>
                   )}
                   {job.salaryMin && (

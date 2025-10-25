@@ -1,11 +1,10 @@
 {
-  "/api/hackathons/route": "app/api/hackathons/route.js",
-  "/api/internships/route": "app/api/internships/route.js",
-  "/api/new-grad-jobs/route": "app/api/new-grad-jobs/route.js",
-  "/api/internships/sync/route": "app/api/internships/sync/route.js",
+  "/_global-error/page": "app/_global-error/page.js",
   "/_not-found/page": "app/_not-found/page.js",
-  "/auth/login/page": "app/auth/login/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
+  "/opengraph-image/route": "app-edge-has-no-entrypoint",
   "/page": "app/page.js",
-  "/(admin)/dashboard/page": "app/(admin)/dashboard/page.js",
-  "/(admin)/internships/page": "app/(admin)/internships/page.js"
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js"
 }
