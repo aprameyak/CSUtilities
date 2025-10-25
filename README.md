@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)](https://reactjs.org/)
-[![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Next.js](https://img.shields.io/badge/Next.js-000000?logo=next.js&logoColor=white)](https://nextjs.org/)
 
 A comprehensive platform for Computer Science students and professionals to practice Data Structures & Algorithms, explore university rankings, and research tech company prestige.
 
@@ -29,13 +29,12 @@ A comprehensive platform for Computer Science students and professionals to prac
 
 ## Tech Stack
 
-- **Frontend**: React 18 with TypeScript
-- **Build Tool**: Vite
+- **Frontend**: Next.js 16 with React 19 and TypeScript
 - **Styling**: Tailwind CSS with custom design system
 - **UI Components**: shadcn/ui (Radix UI primitives)
-- **Routing**: React Router DOM
 - **State Management**: React Query
 - **Icons**: Lucide React
+- **SEO**: Next.js metadata API with structured data
 
 
 ## Key Features
@@ -96,7 +95,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **LeetCode** for problem content and structure
 - **CSRankings** for university ranking data
 - **shadcn/ui** for the excellent component library
-- **Vite** for the fast build tool
+- **Next.js** for the fast, SEO-optimized framework
 - **Tailwind CSS** for the utility-first CSS framework
 
 ## Support
