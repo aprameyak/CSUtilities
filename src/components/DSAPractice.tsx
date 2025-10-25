@@ -1,37 +1,77 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Input } from '@/components/ui/input';
 import { ExternalLink, Search, Filter } from 'lucide-react';
-import { mockProblems, companyList } from '@/data/mockData';
-import { LeetCodeProblem, DifficultyFilter, CompanyFilter } from '@/types';
+import { fetchProblems, DSAProblem } from '@/api/problems';
+import { DifficultyFilter, CompanyFilter } from '@/types';
 
 export const DSAPractice = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [difficultyFilter, setDifficultyFilter] = useState<DifficultyFilter>('All');
   const [companyFilter, setCompanyFilter] = useState<CompanyFilter>('All');
+  const [problems, setProblems] = useState<DSAProblem[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadProblems = async () => {
+      setLoading(true);
+      try {
+        const fetchedProblems = await fetchProblems();
+        setProblems(fetchedProblems);
+      } catch (error) {
+        console.error('Error loading problems:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadProblems();
+  }, []);
 
   const filteredProblems = useMemo(() => {
-    return mockProblems.filter(problem => {
+    return problems.filter(problem => {
       const matchesSearch = problem.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                           problem.topics.some(topic => topic.toLowerCase().includes(searchTerm.toLowerCase()));
-      const matchesDifficulty = difficultyFilter === 'All' || problem.difficulty === difficultyFilter;
-      const matchesCompany = companyFilter === 'All' || problem.companies.includes(companyFilter);
+      const matchesDifficulty = difficultyFilter === 'All' || problem.difficulty.toLowerCase() === difficultyFilter.toLowerCase();
+      const matchesCompany = companyFilter === 'All' || problem.companyTags.includes(companyFilter);
       
       return matchesSearch && matchesDifficulty && matchesCompany;
     });
-  }, [searchTerm, difficultyFilter, companyFilter]);
+  }, [problems, searchTerm, difficultyFilter, companyFilter]);
+
+  // Get unique companies from problems
+  const companyList = useMemo(() => {
+    const companies = new Set<string>();
+    for (const problem of problems) {
+      for (const company of problem.companyTags) {
+        companies.add(company);
+      }
+    }
+    return Array.from(companies).sort((a, b) => a.localeCompare(b));
+  }, [problems]);
 
   const getDifficultyColor = (difficulty: string) => {
-    switch (difficulty) {
-      case 'Easy': return 'bg-easy text-white';
-      case 'Medium': return 'bg-medium text-white';
-      case 'Hard': return 'bg-hard text-white';
+    switch (difficulty.toUpperCase()) {
+      case 'EASY': return 'bg-easy text-white';
+      case 'MEDIUM': return 'bg-medium text-white';
+      case 'HARD': return 'bg-hard text-white';
       default: return 'bg-muted';
     }
   };
+
+  if (loading) {
+    return (
+      <div className="container mx-auto p-6">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Loading...</p>
+        </div>
+      </div>
+    );
+  }
 
   const getCompanyColor = (company: string) => {
     const colors: Record<string, string> = {
@@ -110,7 +150,7 @@ export const DSAPractice = () => {
               <div className="flex items-start justify-between">
                 <div>
                   <CardTitle className="text-lg font-semibold">
-                    #{problem.id}. {problem.name}
+                    {problem.name}
                   </CardTitle>
                 </div>
                 <Badge className={getDifficultyColor(problem.difficulty)}>
@@ -133,7 +173,7 @@ export const DSAPractice = () => {
               <div>
                 <h4 className="text-sm font-medium text-muted-foreground mb-2">Companies</h4>
                 <div className="flex flex-wrap gap-1">
-                  {problem.companies.map((company) => (
+                  {problem.companyTags.map((company) => (
                     <Badge key={company} className={`text-xs ${getCompanyColor(company)}`}>
                       {company}
                     </Badge>
@@ -142,7 +182,7 @@ export const DSAPractice = () => {
               </div>
 
               <Button asChild className="w-full">
-                <a href={problem.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                <a href={problem.leetcodeUrl || '#'} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                   Solve on LeetCode
                   <ExternalLink className="h-4 w-4" />
                 </a>

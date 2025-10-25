@@ -408,3 +408,4 @@ export const Hackathons = () => {
     </div>
   );
 };
+
