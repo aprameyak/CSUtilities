@@ -1,0 +1,11 @@
+{
+  "/api/hackathons/route": "app/api/hackathons/route.js",
+  "/api/internships/route": "app/api/internships/route.js",
+  "/api/new-grad-jobs/route": "app/api/new-grad-jobs/route.js",
+  "/api/internships/sync/route": "app/api/internships/sync/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/auth/login/page": "app/auth/login/page.js",
+  "/page": "app/page.js",
+  "/(admin)/dashboard/page": "app/(admin)/dashboard/page.js",
+  "/(admin)/internships/page": "app/(admin)/internships/page.js"
+}

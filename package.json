@@ -5,11 +5,20 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:admin": "cd ../CSUtilitiesAdmin && npm run dev",
+    "dev:all": "concurrently \"npm run dev\" \"npm run dev:admin\"",
     "build": "vite build",
+    "build:admin": "cd ../CSUtilitiesAdmin && npm run build",
+    "build:all": "npm run build && npm run build:admin",
     "build:dev": "vite build --mode development",
+    "start": "next start",
     "lint": "eslint .",
     "preview": "vite preview",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "db:migrate": "cd ../CSUtilitiesAdmin && npm run db:migrate",
+    "db:generate": "cd ../CSUtilitiesAdmin && npm run db:generate",
+    "db:seed": "cd ../CSUtilitiesAdmin && npm run db:seed",
+    "db:studio": "cd ../CSUtilitiesAdmin && npm run db:studio"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.1.1",
@@ -22,6 +31,7 @@
     "@vercel/analytics": "^1.5.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "concurrently": "^8.2.2",
     "lucide-react": "^0.462.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
