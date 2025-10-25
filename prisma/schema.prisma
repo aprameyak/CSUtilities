@@ -1,0 +1,373 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model AdminUser {
+  id        String   @id @default(cuid())
+  username  String   @unique
+  email     String   @unique
+  password  String
+  role      AdminRole @default(CONTENT_ADMIN)
+  status    AdminStatus @default(ACTIVE)
+  lastLogin DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  auditLogs AuditLog[]
+  problems  DSAProblem[] @relation("DSAProblemCreatedBy")
+  problemsUpdated DSAProblem[] @relation("DSAProblemUpdatedBy")
+  universities University[] @relation("UniversityCreatedBy")
+  universitiesUpdated University[] @relation("UniversityUpdatedBy")
+  companies Company[] @relation("CompanyCreatedBy")
+  companiesUpdated Company[] @relation("CompanyUpdatedBy")
+  internships Internship[] @relation("InternshipCreatedBy")
+  internshipsUpdated Internship[] @relation("InternshipUpdatedBy")
+  newGradJobs NewGradJob[] @relation("NewGradJobCreatedBy")
+  newGradJobsUpdated NewGradJob[] @relation("NewGradJobUpdatedBy")
+  hackathons Hackathon[] @relation("HackathonCreatedBy")
+  hackathonsUpdated Hackathon[] @relation("HackathonUpdatedBy")
+
+  @@map("admin_users")
+}
+
+model DSAProblem {
+  id          String   @id @default(cuid())
+  name        String
+  difficulty  Difficulty
+  description String
+  topics      String[] // Array of topics
+  companyTags String[] // Array of company tags
+  leetcodeUrl String?
+  status      ProblemStatus @default(ACTIVE)
+  featured    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  createdBy   AdminUser @relation("DSAProblemCreatedBy", fields: [createdById], references: [id])
+  createdById String
+  updatedBy   AdminUser? @relation("DSAProblemUpdatedBy", fields: [updatedById], references: [id])
+  updatedById String?
+
+  @@map("dsa_problems")
+}
+
+model University {
+  id           String   @id @default(cuid())
+  name         String
+  rank         Int?
+  country      String
+  prestigeScore Int     @default(0)
+  websiteUrl   String?
+  location     String?
+  description  String?
+  logoUrl      String?
+  status       UniversityStatus @default(ACTIVE)
+  featured     Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  createdBy    AdminUser @relation("UniversityCreatedBy", fields: [createdById], references: [id])
+  createdById  String
+  updatedBy    AdminUser? @relation("UniversityUpdatedBy", fields: [updatedById], references: [id])
+  updatedById  String?
+
+  @@map("universities")
+}
+
+model Company {
+  id           String   @id @default(cuid())
+  name         String
+  prestigeScore Int     @default(0)
+  rank         Int?
+  industry     String
+  location     String?
+  websiteUrl   String?
+  description  String?
+  logoUrl      String?
+  status       CompanyStatus @default(ACTIVE)
+  featured     Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  createdBy    AdminUser @relation("CompanyCreatedBy", fields: [createdById], references: [id])
+  createdById  String
+  updatedBy    AdminUser? @relation("CompanyUpdatedBy", fields: [updatedById], references: [id])
+  updatedById  String?
+  internships  Internship[] @relation("InternshipCompany")
+  newGradJobs  NewGradJob[] @relation("NewGradJobCompany")
+
+  @@map("companies")
+}
+
+model Internship {
+  id                String   @id @default(cuid())
+  title             String
+  companyId         String
+  location          String
+  type              InternshipType
+  duration          String?
+  salaryMin         Int?
+  salaryMax         Int?
+  salaryCurrency    String   @default("USD")
+  requirements      String[]
+  skills            String[]
+  description       String   @db.Text
+  applicationDeadline DateTime?
+  startDate         DateTime?
+  endDate           DateTime?
+  remote            Boolean  @default(false)
+  dataSource        DataSource
+  sourceUrl         String
+  postedDate        DateTime
+  companyLogo       String?
+  difficulty        InternshipDifficulty @default(MEDIUM)
+  popularity        Int     @default(0)
+  status            InternshipStatus @default(ACTIVE)
+  featured          Boolean @default(false)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Relations
+  company           Company @relation("InternshipCompany", fields: [companyId], references: [id])
+  createdBy         AdminUser @relation("InternshipCreatedBy", fields: [createdById], references: [id])
+  createdById       String
+  updatedBy         AdminUser? @relation("InternshipUpdatedBy", fields: [updatedById], references: [id])
+  updatedById       String?
+
+  @@map("internships")
+}
+
+model NewGradJob {
+  id                String   @id @default(cuid())
+  title             String
+  companyId         String
+  location          String
+  type              JobType
+  salaryMin         Int?
+  salaryMax         Int?
+  salaryCurrency    String   @default("USD")
+  requirements      String[]
+  skills            String[]
+  description       String   @db.Text
+  applicationDeadline DateTime?
+  startDate         DateTime?
+  remote            Boolean  @default(false)
+  dataSource        DataSource
+  sourceUrl         String
+  postedDate        DateTime
+  companyLogo       String?
+  difficulty        JobDifficulty @default(MEDIUM)
+  popularity        Int     @default(0)
+  status            JobStatus @default(ACTIVE)
+  featured          Boolean @default(false)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Relations
+  company           Company @relation("NewGradJobCompany", fields: [companyId], references: [id])
+  createdBy         AdminUser @relation("NewGradJobCreatedBy", fields: [createdById], references: [id])
+  createdById       String
+  updatedBy         AdminUser? @relation("NewGradJobUpdatedBy", fields: [updatedById], references: [id])
+  updatedById       String?
+
+  @@map("new_grad_jobs")
+}
+
+model Hackathon {
+  id                String   @id @default(cuid())
+  name              String
+  organizer         String
+  location          String
+  type              HackathonType
+  startDate         DateTime
+  endDate           DateTime
+  registrationDeadline DateTime?
+  prizePool         String?
+  prizeCurrency     String   @default("USD")
+  description       String   @db.Text
+  themes            String[]
+  technologies      String[]
+  requirements      String[]
+  websiteUrl        String
+  registrationUrl   String?
+  dataSource        DataSource
+  postedDate        DateTime
+  logoUrl           String?
+  difficulty        HackathonDifficulty @default(MEDIUM)
+  popularity        Int     @default(0)
+  status            HackathonStatus @default(ACTIVE)
+  featured          Boolean @default(false)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Relations
+  createdBy         AdminUser @relation("HackathonCreatedBy", fields: [createdById], references: [id])
+  createdById       String
+  updatedBy         AdminUser? @relation("HackathonUpdatedBy", fields: [updatedById], references: [id])
+  updatedById       String?
+
+  @@map("hackathons")
+}
+
+model DataSourceSync {
+  id            String   @id @default(cuid())
+  sourceName    DataSource
+  lastSyncAt    DateTime
+  recordsProcessed Int
+  recordsAdded  Int
+  recordsUpdated Int
+  recordsFailed Int
+  errorMessage  String?
+  status        SyncStatus
+  createdAt     DateTime @default(now())
+
+  @@map("data_source_syncs")
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  adminId   String
+  actionType String
+  entityType String
+  entityId  String?
+  oldValues Json?
+  newValues Json?
+  ipAddress String?
+  userAgent String?
+  timestamp DateTime @default(now())
+
+  // Relations
+  admin     AdminUser @relation(fields: [adminId], references: [id])
+
+  @@map("audit_logs")
+}
+
+// Enums
+enum AdminRole {
+  SUPER_ADMIN
+  CONTENT_ADMIN
+}
+
+enum AdminStatus {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+}
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum ProblemStatus {
+  ACTIVE
+  INACTIVE
+  DRAFT
+}
+
+enum UniversityStatus {
+  ACTIVE
+  INACTIVE
+  DRAFT
+}
+
+enum CompanyStatus {
+  ACTIVE
+  INACTIVE
+  DRAFT
+}
+
+enum InternshipType {
+  SUMMER
+  FALL
+  SPRING
+  YEAR_ROUND
+  CO_OP
+}
+
+enum InternshipDifficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum InternshipStatus {
+  ACTIVE
+  INACTIVE
+  DRAFT
+  CLOSED
+}
+
+enum JobType {
+  FULL_TIME
+  PART_TIME
+  CONTRACT
+  FREELANCE
+}
+
+enum JobDifficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum JobStatus {
+  ACTIVE
+  INACTIVE
+  DRAFT
+  CLOSED
+}
+
+enum HackathonType {
+  ONLINE
+  IN_PERSON
+  HYBRID
+  UNIVERSITY
+  CORPORATE
+  INDEPENDENT
+}
+
+enum HackathonDifficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum HackathonStatus {
+  ACTIVE
+  INACTIVE
+  DRAFT
+  CLOSED
+  COMPLETED
+}
+
+enum DataSource {
+  GITHUB_VANSH
+  GITHUB_SIMPLIFY
+  INTERN_LIST
+  LINKEDIN
+  GLASSDOOR
+  INDEED
+  HANDLE
+  MANUAL
+}
+
+enum SyncStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  FAILED
+} 
