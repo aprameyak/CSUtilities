@@ -27,7 +27,6 @@ export const DSAPractice = () => {
         setLoading(false);
       }
     };
-
     loadProblems();
   }, []);
 
