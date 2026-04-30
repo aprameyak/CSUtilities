@@ -1,17 +1,18 @@
+"use client";
+
 import { useState, useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { 
-  ExternalLink, 
-  Search, 
-  MapPin, 
-  Building2, 
+import {
+  ExternalLink,
+  Search,
+  MapPin,
+  Building2,
   Calendar,
   DollarSign,
-  Users,
   Clock,
   Star,
   TrendingUp,
@@ -20,7 +21,6 @@ import {
   GraduationCap
 } from 'lucide-react';
 
-// Mock data for internships
 const mockInternships = [
   {
     id: '1',
@@ -35,13 +35,13 @@ const mockInternships = [
     requirements: ['Currently pursuing BS/MS in Computer Science', 'Strong programming skills'],
     skills: ['Python', 'Java', 'JavaScript', 'Data Structures'],
     description: 'Join Google\'s engineering team for an exciting summer internship opportunity.',
-    applicationDeadline: '2024-02-15',
-    startDate: '2024-06-01',
-    endDate: '2024-08-23',
+    applicationDeadline: '2026-05-15',
+    startDate: '2026-06-01',
+    endDate: '2026-08-22',
     remote: false,
     dataSource: 'GITHUB_VANSH',
-    sourceUrl: 'https://careers.google.com/jobs/results/123456',
-    postedDate: '2024-01-15',
+    sourceUrl: 'https://careers.google.com',
+    postedDate: '2026-04-01',
     difficulty: 'HARD',
     popularity: 95
   },
@@ -58,19 +58,156 @@ const mockInternships = [
     requirements: ['React experience', 'JavaScript proficiency'],
     skills: ['React', 'JavaScript', 'TypeScript', 'CSS'],
     description: 'Build amazing user experiences with Meta\'s frontend team.',
-    applicationDeadline: '2024-02-01',
-    startDate: '2024-06-01',
-    endDate: '2024-08-09',
+    applicationDeadline: '2026-05-20',
+    startDate: '2026-06-15',
+    endDate: '2026-08-24',
     remote: true,
     dataSource: 'GITHUB_SIMPLIFY',
-    sourceUrl: 'https://careers.meta.com/jobs/123456',
-    postedDate: '2024-01-10',
+    sourceUrl: 'https://careers.meta.com',
+    postedDate: '2026-04-05',
     difficulty: 'MEDIUM',
     popularity: 88
+  },
+  {
+    id: '3',
+    title: 'Machine Learning Intern',
+    company: 'Apple',
+    location: 'Cupertino, CA',
+    type: 'SUMMER',
+    duration: '12 weeks',
+    salaryMin: 8500,
+    salaryMax: 11000,
+    salaryCurrency: 'USD',
+    requirements: ['Experience with PyTorch or TensorFlow', 'Strong math background'],
+    skills: ['Python', 'PyTorch', 'Machine Learning', 'Statistics'],
+    description: 'Work on cutting-edge ML models that power Apple products.',
+    applicationDeadline: '2026-05-10',
+    startDate: '2026-06-01',
+    endDate: '2026-08-22',
+    remote: false,
+    dataSource: 'GITHUB_SIMPLIFY',
+    sourceUrl: 'https://jobs.apple.com',
+    postedDate: '2026-04-02',
+    difficulty: 'HARD',
+    popularity: 93
+  },
+  {
+    id: '4',
+    title: 'Cloud Infrastructure Intern',
+    company: 'Amazon',
+    location: 'Seattle, WA',
+    type: 'SUMMER',
+    duration: '12 weeks',
+    salaryMin: 7500,
+    salaryMax: 10500,
+    salaryCurrency: 'USD',
+    requirements: ['CS or related degree in progress', 'Linux experience a plus'],
+    skills: ['AWS', 'Python', 'Linux', 'Networking'],
+    description: 'Help build and scale the infrastructure that powers AWS.',
+    applicationDeadline: '2026-05-25',
+    startDate: '2026-06-08',
+    endDate: '2026-08-28',
+    remote: false,
+    dataSource: 'LINKEDIN',
+    sourceUrl: 'https://amazon.jobs',
+    postedDate: '2026-04-08',
+    difficulty: 'MEDIUM',
+    popularity: 91
+  },
+  {
+    id: '5',
+    title: 'Data Engineering Intern',
+    company: 'Stripe',
+    location: 'San Francisco, CA',
+    type: 'SUMMER',
+    duration: '12 weeks',
+    salaryMin: 8000,
+    salaryMax: 11000,
+    salaryCurrency: 'USD',
+    requirements: ['Strong SQL knowledge', 'Experience with data pipelines'],
+    skills: ['Python', 'SQL', 'Spark', 'dbt'],
+    description: 'Build data pipelines and analytics infrastructure for Stripe\'s payments platform.',
+    applicationDeadline: '2026-06-01',
+    startDate: '2026-06-15',
+    endDate: '2026-09-05',
+    remote: false,
+    dataSource: 'GLASSDOOR',
+    sourceUrl: 'https://stripe.com/jobs',
+    postedDate: '2026-04-12',
+    difficulty: 'MEDIUM',
+    popularity: 85
+  },
+  {
+    id: '6',
+    title: 'iOS Developer Intern',
+    company: 'Airbnb',
+    location: 'San Francisco, CA',
+    type: 'SUMMER',
+    duration: '12 weeks',
+    salaryMin: 7000,
+    salaryMax: 9500,
+    salaryCurrency: 'USD',
+    requirements: ['Swift experience required', 'Familiarity with UIKit or SwiftUI'],
+    skills: ['Swift', 'SwiftUI', 'Xcode', 'iOS'],
+    description: 'Join Airbnb\'s mobile team and help build experiences for millions of travelers.',
+    applicationDeadline: '2026-06-10',
+    startDate: '2026-06-22',
+    endDate: '2026-09-12',
+    remote: false,
+    dataSource: 'GITHUB_SIMPLIFY',
+    sourceUrl: 'https://careers.airbnb.com',
+    postedDate: '2026-04-15',
+    difficulty: 'MEDIUM',
+    popularity: 80
+  },
+  {
+    id: '7',
+    title: 'Security Engineering Intern',
+    company: 'Cloudflare',
+    location: 'Remote',
+    type: 'SUMMER',
+    duration: '12 weeks',
+    salaryMin: 7000,
+    salaryMax: 10000,
+    salaryCurrency: 'USD',
+    requirements: ['Interest in security or networking', 'Systems programming experience'],
+    skills: ['Go', 'Rust', 'Networking', 'Security'],
+    description: 'Help protect the internet at massive scale with Cloudflare\'s security team.',
+    applicationDeadline: '2026-06-15',
+    startDate: '2026-07-07',
+    endDate: '2026-09-26',
+    remote: true,
+    dataSource: 'GITHUB_SIMPLIFY',
+    sourceUrl: 'https://cloudflare.com/careers',
+    postedDate: '2026-04-18',
+    difficulty: 'HARD',
+    popularity: 83
+  },
+  {
+    id: '8',
+    title: 'Product Engineering Intern',
+    company: 'Figma',
+    location: 'San Francisco, CA',
+    type: 'SUMMER',
+    duration: '12 weeks',
+    salaryMin: 7500,
+    salaryMax: 9500,
+    salaryCurrency: 'USD',
+    requirements: ['Frontend development skills', 'Design sensibility a plus'],
+    skills: ['TypeScript', 'React', 'WebGL', 'CSS'],
+    description: 'Build features that help millions of designers collaborate in real-time.',
+    applicationDeadline: '2026-06-20',
+    startDate: '2026-07-06',
+    endDate: '2026-09-26',
+    remote: false,
+    dataSource: 'LINKEDIN',
+    sourceUrl: 'https://figma.com/jobs',
+    postedDate: '2026-04-20',
+    difficulty: 'MEDIUM',
+    popularity: 84
   }
 ];
 
-// Mock data for new grad jobs
 const mockNewGradJobs = [
   {
     id: '1',
@@ -84,12 +221,12 @@ const mockNewGradJobs = [
     requirements: ['BS/MS in Computer Science or related field', 'Strong programming fundamentals'],
     skills: ['C#', '.NET', 'Azure', 'SQL'],
     description: 'Join Microsoft as a new grad software engineer and build amazing products.',
-    applicationDeadline: '2024-03-15',
-    startDate: '2024-08-01',
+    applicationDeadline: '2026-07-15',
+    startDate: '2026-09-01',
     remote: false,
     dataSource: 'LINKEDIN',
-    sourceUrl: 'https://careers.microsoft.com/jobs/123456',
-    postedDate: '2024-01-20',
+    sourceUrl: 'https://careers.microsoft.com',
+    postedDate: '2026-04-20',
     difficulty: 'HARD',
     popularity: 92
   },
@@ -99,20 +236,104 @@ const mockNewGradJobs = [
     company: 'Netflix',
     location: 'Los Gatos, CA',
     type: 'FULL_TIME',
-    salaryMin: 110000,
-    salaryMax: 140000,
+    salaryMin: 130000,
+    salaryMax: 160000,
     salaryCurrency: 'USD',
     requirements: ['BS in Computer Science', 'Frontend development experience'],
     skills: ['React', 'TypeScript', 'CSS', 'JavaScript'],
     description: 'Build the next generation of Netflix\'s streaming platform.',
-    applicationDeadline: '2024-03-01',
-    startDate: '2024-07-01',
+    applicationDeadline: '2026-07-01',
+    startDate: '2026-08-18',
     remote: false,
     dataSource: 'GLASSDOOR',
-    sourceUrl: 'https://jobs.netflix.com/jobs/123456',
-    postedDate: '2024-01-18',
+    sourceUrl: 'https://jobs.netflix.com',
+    postedDate: '2026-04-18',
     difficulty: 'MEDIUM',
     popularity: 89
+  },
+  {
+    id: '3',
+    title: 'Software Engineer I',
+    company: 'Salesforce',
+    location: 'San Francisco, CA',
+    type: 'FULL_TIME',
+    salaryMin: 115000,
+    salaryMax: 140000,
+    salaryCurrency: 'USD',
+    requirements: ['CS degree required', 'Java or Python experience'],
+    skills: ['Java', 'Python', 'Salesforce Platform', 'SQL'],
+    description: 'Join Salesforce\'s engineering team and help build the world\'s #1 CRM platform.',
+    applicationDeadline: '2026-07-20',
+    startDate: '2026-09-08',
+    remote: false,
+    dataSource: 'LINKEDIN',
+    sourceUrl: 'https://salesforce.com/careers',
+    postedDate: '2026-04-22',
+    difficulty: 'MEDIUM',
+    popularity: 80
+  },
+  {
+    id: '4',
+    title: 'Backend Engineer - New Grad',
+    company: 'Stripe',
+    location: 'Remote',
+    type: 'FULL_TIME',
+    salaryMin: 140000,
+    salaryMax: 175000,
+    salaryCurrency: 'USD',
+    requirements: ['Strong distributed systems knowledge', 'CS or related degree'],
+    skills: ['Ruby', 'Go', 'Java', 'PostgreSQL'],
+    description: 'Help build reliable, high-scale financial infrastructure used by millions of businesses.',
+    applicationDeadline: '2026-07-10',
+    startDate: '2026-08-31',
+    remote: true,
+    dataSource: 'GLASSDOOR',
+    sourceUrl: 'https://stripe.com/jobs',
+    postedDate: '2026-04-25',
+    difficulty: 'HARD',
+    popularity: 94
+  },
+  {
+    id: '5',
+    title: 'Software Development Engineer',
+    company: 'Amazon',
+    location: 'Seattle, WA',
+    type: 'FULL_TIME',
+    salaryMin: 125000,
+    salaryMax: 155000,
+    salaryCurrency: 'USD',
+    requirements: ['BS/MS in CS or related field', 'Data structures & algorithms proficiency'],
+    skills: ['Java', 'Python', 'AWS', 'System Design'],
+    description: 'Design, build, and maintain scalable systems that serve millions of Amazon customers.',
+    applicationDeadline: '2026-07-25',
+    startDate: '2026-09-14',
+    remote: false,
+    dataSource: 'LINKEDIN',
+    sourceUrl: 'https://amazon.jobs',
+    postedDate: '2026-04-28',
+    difficulty: 'HARD',
+    popularity: 91
+  },
+  {
+    id: '6',
+    title: 'Machine Learning Engineer - New Grad',
+    company: 'OpenAI',
+    location: 'San Francisco, CA',
+    type: 'FULL_TIME',
+    salaryMin: 160000,
+    salaryMax: 210000,
+    salaryCurrency: 'USD',
+    requirements: ['Strong ML background', 'Research experience preferred'],
+    skills: ['Python', 'PyTorch', 'CUDA', 'Distributed Training'],
+    description: 'Work on frontier AI research and help build safe, beneficial AI systems.',
+    applicationDeadline: '2026-06-30',
+    startDate: '2026-08-17',
+    remote: false,
+    dataSource: 'GITHUB_SIMPLIFY',
+    sourceUrl: 'https://openai.com/careers',
+    postedDate: '2026-04-26',
+    difficulty: 'HARD',
+    popularity: 98
   }
 ];
 
@@ -132,14 +353,14 @@ export const Jobs = () => {
                           job.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
                           job.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
                           job.skills.some(skill => skill.toLowerCase().includes(searchTerm.toLowerCase()));
-      
+
       const matchesType = typeFilter === 'All' || job.type === typeFilter;
       const matchesLocation = locationFilter === 'All' || job.location === locationFilter;
       const matchesDifficulty = difficultyFilter === 'All' || job.difficulty === difficultyFilter;
-      const matchesRemote = remoteFilter === 'All' || 
+      const matchesRemote = remoteFilter === 'All' ||
                            (remoteFilter === 'Remote' && job.remote) ||
                            (remoteFilter === 'On-site' && !job.remote);
-      
+
       return matchesSearch && matchesType && matchesLocation && matchesDifficulty && matchesRemote;
     });
   }, [currentData, searchTerm, typeFilter, locationFilter, difficultyFilter, remoteFilter]);
@@ -197,6 +418,11 @@ export const Jobs = () => {
     }
   };
 
+  const uniqueLocations = useMemo(() => {
+    const locs = new Set(currentData.map(j => j.location));
+    return Array.from(locs).sort();
+  }, [currentData]);
+
   return (
     <div className="container mx-auto p-6 space-y-6">
       <div className="text-center space-y-4">
@@ -215,7 +441,7 @@ export const Jobs = () => {
             <div className="flex bg-gray-100 rounded-lg p-1">
               <Button
                 variant={jobType === 'internships' ? 'default' : 'ghost'}
-                onClick={() => setJobType('internships')}
+                onClick={() => { setJobType('internships'); setTypeFilter('All'); setLocationFilter('All'); }}
                 className="flex items-center gap-2"
               >
                 <Briefcase className="h-4 w-4" />
@@ -223,7 +449,7 @@ export const Jobs = () => {
               </Button>
               <Button
                 variant={jobType === 'new-grad' ? 'default' : 'ghost'}
-                onClick={() => setJobType('new-grad')}
+                onClick={() => { setJobType('new-grad'); setTypeFilter('All'); setLocationFilter('All'); }}
                 className="flex items-center gap-2"
               >
                 <GraduationCap className="h-4 w-4" />
@@ -253,7 +479,7 @@ export const Jobs = () => {
                 className="pl-10"
               />
             </div>
-            
+
             <Select value={typeFilter} onValueChange={setTypeFilter}>
               <SelectTrigger>
                 <SelectValue placeholder="Job type" />
@@ -285,10 +511,9 @@ export const Jobs = () => {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="All">All Locations</SelectItem>
-                <SelectItem value="Remote">Remote</SelectItem>
-                <SelectItem value="Mountain View, CA">Mountain View, CA</SelectItem>
-                <SelectItem value="Seattle, WA">Seattle, WA</SelectItem>
-                <SelectItem value="Los Gatos, CA">Los Gatos, CA</SelectItem>
+                {uniqueLocations.map(loc => (
+                  <SelectItem key={loc} value={loc}>{loc}</SelectItem>
+                ))}
               </SelectContent>
             </Select>
 
@@ -323,7 +548,7 @@ export const Jobs = () => {
         {filteredJobs.map((job) => {
           const daysUntilDeadline = getDaysUntilDeadline(job.applicationDeadline);
           const isUrgent = daysUntilDeadline <= 7;
-          
+
           return (
             <Card key={job.id} className="group hover:shadow-lg transition-all duration-200 hover:-translate-y-1">
               <CardHeader>
@@ -356,7 +581,7 @@ export const Jobs = () => {
                   </div>
                 </div>
               </CardHeader>
-              
+
               <CardContent className="space-y-4">
                 <div className="space-y-2">
                   <div className="flex items-center gap-2 text-muted-foreground">
@@ -406,7 +631,7 @@ export const Jobs = () => {
                           Application Deadline
                         </p>
                         <p className={`text-xs ${isUrgent ? 'text-red-600' : 'text-blue-600'}`}>
-                          {new Date(job.applicationDeadline).toLocaleDateString()} 
+                          {new Date(job.applicationDeadline).toLocaleDateString()}
                           {isUrgent && ` (${daysUntilDeadline} days left!)`}
                         </p>
                       </div>
@@ -451,4 +676,3 @@ export const Jobs = () => {
     </div>
   );
 };
-

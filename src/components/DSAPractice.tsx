@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useMemo, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -20,7 +22,6 @@ export const DSAPractice = () => {
       setLoading(true);
       try {
         const fetchedProblems = await fetchProblems();
-        console.log('Fetched problems:', fetchedProblems);
         setProblems(fetchedProblems);
       } catch (error) {
         console.error('Error loading problems:', error);

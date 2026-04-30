@@ -1,68 +1,66 @@
+"use client";
+
 import { useState, useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { 
-  ExternalLink, 
-  Search, 
-  MapPin, 
+import {
+  ExternalLink,
+  Search,
+  MapPin,
   Calendar,
   DollarSign,
   Clock,
-  Star,
   TrendingUp,
   Filter,
   Trophy,
   Users
 } from 'lucide-react';
 
-// Mock data for hackathons
 const mockHackathons = [
   {
     id: '1',
-    name: 'Google Developer Hackathon 2024',
+    name: 'Google Developer Hackathon 2026',
     organizer: 'Google',
     location: 'Mountain View, CA',
     type: 'HYBRID',
-    startDate: '2024-03-15',
-    endDate: '2024-03-17',
-    registrationDeadline: '2024-03-10',
+    startDate: '2026-06-13',
+    endDate: '2026-06-15',
+    registrationDeadline: '2026-06-08',
     prizePool: '50,000',
     prizeCurrency: 'USD',
     description: 'Build innovative solutions using Google technologies and compete for amazing prizes.',
     themes: ['AI/ML', 'Web Development', 'Mobile Apps'],
     technologies: ['Flutter', 'Firebase', 'TensorFlow'],
     requirements: ['Open to all developers', 'Team size: 2-4 people'],
-    websiteUrl: 'https://developers.google.com/hackathon',
-    registrationUrl: 'https://developers.google.com/hackathon/register',
+    websiteUrl: 'https://developers.google.com',
+    registrationUrl: 'https://developers.google.com',
     dataSource: 'MANUAL',
-    postedDate: '2024-01-15',
-    logoUrl: 'https://developers.google.com/static/images/brand-guidelines/google-developers-logo.png',
+    postedDate: '2026-04-15',
     difficulty: 'HARD',
     popularity: 95
   },
   {
     id: '2',
-    name: 'Meta University Hackathon',
+    name: 'Meta University Hackathon 2026',
     organizer: 'Meta',
     location: 'Remote',
     type: 'ONLINE',
-    startDate: '2024-04-01',
-    endDate: '2024-04-03',
-    registrationDeadline: '2024-03-25',
+    startDate: '2026-07-11',
+    endDate: '2026-07-13',
+    registrationDeadline: '2026-07-05',
     prizePool: '25,000',
     prizeCurrency: 'USD',
     description: 'Create the next big thing in social media and VR technology.',
     themes: ['Social Media', 'VR/AR', 'AI'],
     technologies: ['React', 'Oculus SDK', 'PyTorch'],
     requirements: ['University students only', 'Individual or team participation'],
-    websiteUrl: 'https://meta.com/hackathon',
-    registrationUrl: 'https://meta.com/hackathon/register',
+    websiteUrl: 'https://meta.com',
+    registrationUrl: 'https://meta.com',
     dataSource: 'MANUAL',
-    postedDate: '2024-01-20',
-    logoUrl: 'https://meta.com/static/images/logo.png',
+    postedDate: '2026-04-20',
     difficulty: 'MEDIUM',
     popularity: 88
   },
@@ -72,29 +70,137 @@ const mockHackathons = [
     organizer: 'Microsoft',
     location: 'Seattle, WA',
     type: 'IN_PERSON',
-    startDate: '2024-05-10',
-    endDate: '2024-05-12',
-    registrationDeadline: '2024-04-30',
+    startDate: '2026-08-07',
+    endDate: '2026-08-09',
+    registrationDeadline: '2026-07-28',
     prizePool: '30,000',
     prizeCurrency: 'USD',
     description: 'Build solutions using Microsoft Azure and compete with students worldwide.',
     themes: ['Cloud Computing', 'IoT', 'Data Science'],
     technologies: ['Azure', 'C#', 'Power BI'],
     requirements: ['Student ID required', 'Team size: 3-5 people'],
-    websiteUrl: 'https://microsoft.com/student-hackathon',
-    registrationUrl: 'https://microsoft.com/student-hackathon/register',
+    websiteUrl: 'https://microsoft.com',
+    registrationUrl: 'https://microsoft.com',
     dataSource: 'MANUAL',
-    postedDate: '2024-01-25',
-    logoUrl: 'https://microsoft.com/static/images/logo.png',
+    postedDate: '2026-04-25',
     difficulty: 'HARD',
     popularity: 92
+  },
+  {
+    id: '4',
+    name: 'HackMIT 2026',
+    organizer: 'MIT',
+    location: 'Cambridge, MA',
+    type: 'IN_PERSON',
+    startDate: '2026-09-19',
+    endDate: '2026-09-20',
+    registrationDeadline: '2026-08-15',
+    prizePool: '20,000',
+    prizeCurrency: 'USD',
+    description: 'One of the most prestigious university hackathons in the world, hosted by MIT.',
+    themes: ['Open Innovation', 'Social Impact', 'Hardware'],
+    technologies: ['Any', 'Raspberry Pi', 'Arduino'],
+    requirements: ['College students only', 'Individual or team up to 4'],
+    websiteUrl: 'https://hackmit.org',
+    registrationUrl: 'https://hackmit.org',
+    dataSource: 'MANUAL',
+    postedDate: '2026-04-28',
+    difficulty: 'HARD',
+    popularity: 96
+  },
+  {
+    id: '5',
+    name: 'TreeHacks 2026',
+    organizer: 'Stanford University',
+    location: 'Stanford, CA',
+    type: 'IN_PERSON',
+    startDate: '2026-05-15',
+    endDate: '2026-05-17',
+    registrationDeadline: '2026-05-08',
+    prizePool: '15,000',
+    prizeCurrency: 'USD',
+    description: 'Stanford\'s flagship hackathon focused on high-impact hacks for social good.',
+    themes: ['Healthcare', 'Climate', 'Education', 'Social Impact'],
+    technologies: ['Any', 'Python', 'JavaScript'],
+    requirements: ['Open to all students', 'Teams of 1-4'],
+    websiteUrl: 'https://treehacks.com',
+    registrationUrl: 'https://treehacks.com',
+    dataSource: 'MANUAL',
+    postedDate: '2026-04-15',
+    difficulty: 'MEDIUM',
+    popularity: 90
+  },
+  {
+    id: '6',
+    name: 'Hack the North 2026',
+    organizer: 'University of Waterloo',
+    location: 'Waterloo, ON, Canada',
+    type: 'IN_PERSON',
+    startDate: '2026-09-11',
+    endDate: '2026-09-13',
+    registrationDeadline: '2026-08-01',
+    prizePool: '35,000',
+    prizeCurrency: 'CAD',
+    description: 'Canada\'s biggest hackathon, welcoming 1,000+ hackers from around the world.',
+    themes: ['Open Theme', 'Fintech', 'AI/ML', 'Accessibility'],
+    technologies: ['Any'],
+    requirements: ['Open to post-secondary students', 'Teams up to 4'],
+    websiteUrl: 'https://hackthenorth.com',
+    registrationUrl: 'https://hackthenorth.com',
+    dataSource: 'MANUAL',
+    postedDate: '2026-04-28',
+    difficulty: 'MEDIUM',
+    popularity: 93
+  },
+  {
+    id: '7',
+    name: 'AWS Build On',
+    organizer: 'Amazon Web Services',
+    location: 'Remote',
+    type: 'ONLINE',
+    startDate: '2026-06-27',
+    endDate: '2026-06-29',
+    registrationDeadline: '2026-06-20',
+    prizePool: '40,000',
+    prizeCurrency: 'USD',
+    description: 'Build cloud-native applications on AWS and win credits, cash prizes, and swag.',
+    themes: ['Cloud Infrastructure', 'Serverless', 'AI/ML', 'IoT'],
+    technologies: ['AWS Lambda', 'DynamoDB', 'SageMaker', 'CDK'],
+    requirements: ['Open to all developers', 'Individual or team up to 5'],
+    websiteUrl: 'https://aws.amazon.com',
+    registrationUrl: 'https://aws.amazon.com',
+    dataSource: 'MANUAL',
+    postedDate: '2026-04-22',
+    difficulty: 'MEDIUM',
+    popularity: 82
+  },
+  {
+    id: '8',
+    name: 'MHacks 2026',
+    organizer: 'University of Michigan',
+    location: 'Ann Arbor, MI',
+    type: 'IN_PERSON',
+    startDate: '2026-10-02',
+    endDate: '2026-10-04',
+    registrationDeadline: '2026-08-31',
+    prizePool: '12,000',
+    prizeCurrency: 'USD',
+    description: 'University of Michigan\'s premier hackathon bringing together students from across the country.',
+    themes: ['Sustainability', 'Healthcare', 'Productivity', 'Open Innovation'],
+    technologies: ['Any'],
+    requirements: ['College students', 'Teams of 1-4'],
+    websiteUrl: 'https://mhacks.org',
+    registrationUrl: 'https://mhacks.org',
+    dataSource: 'MANUAL',
+    postedDate: '2026-04-26',
+    difficulty: 'EASY',
+    popularity: 76
   }
 ];
 
 export const Hackathons = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [typeFilter, setTypeFilter] = useState('All');
-  const [locationFilter, setLocationFilter] = useState('All');
   const [difficultyFilter, setDifficultyFilter] = useState('All');
 
   const filteredHackathons = useMemo(() => {
@@ -104,14 +210,13 @@ export const Hackathons = () => {
                           hackathon.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
                           hackathon.themes.some(theme => theme.toLowerCase().includes(searchTerm.toLowerCase())) ||
                           hackathon.technologies.some(tech => tech.toLowerCase().includes(searchTerm.toLowerCase()));
-      
+
       const matchesType = typeFilter === 'All' || hackathon.type === typeFilter;
-      const matchesLocation = locationFilter === 'All' || hackathon.location === locationFilter;
       const matchesDifficulty = difficultyFilter === 'All' || hackathon.difficulty === difficultyFilter;
-      
-      return matchesSearch && matchesType && matchesLocation && matchesDifficulty;
+
+      return matchesSearch && matchesType && matchesDifficulty;
     });
-  }, [searchTerm, typeFilter, locationFilter, difficultyFilter]);
+  }, [searchTerm, typeFilter, difficultyFilter]);
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
@@ -168,7 +273,7 @@ export const Hackathons = () => {
           Tech Hackathons
         </h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Discover and participate in exciting hackathons from top tech companies
+          Discover and participate in exciting hackathons from top tech companies and universities
         </p>
       </div>
 
@@ -181,17 +286,17 @@ export const Hackathons = () => {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="relative">
               <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
               <Input
-                placeholder="Search hackathons..."
+                placeholder="Search hackathons, themes, or technologies..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-10"
               />
             </div>
-            
+
             <Select value={typeFilter} onValueChange={setTypeFilter}>
               <SelectTrigger>
                 <SelectValue placeholder="Hackathon type" />
@@ -201,21 +306,6 @@ export const Hackathons = () => {
                 <SelectItem value="ONLINE">Online</SelectItem>
                 <SelectItem value="IN_PERSON">In-Person</SelectItem>
                 <SelectItem value="HYBRID">Hybrid</SelectItem>
-                <SelectItem value="UNIVERSITY">University</SelectItem>
-                <SelectItem value="CORPORATE">Corporate</SelectItem>
-                <SelectItem value="INDEPENDENT">Independent</SelectItem>
-              </SelectContent>
-            </Select>
-
-            <Select value={locationFilter} onValueChange={setLocationFilter}>
-              <SelectTrigger>
-                <SelectValue placeholder="Location" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="All">All Locations</SelectItem>
-                <SelectItem value="Remote">Remote</SelectItem>
-                <SelectItem value="Mountain View, CA">Mountain View, CA</SelectItem>
-                <SelectItem value="Seattle, WA">Seattle, WA</SelectItem>
               </SelectContent>
             </Select>
 
@@ -240,8 +330,8 @@ export const Hackathons = () => {
           const daysUntilDeadline = getDaysUntilDeadline(hackathon.registrationDeadline);
           const daysUntilStart = getDaysUntilStart(hackathon.startDate);
           const isUrgent = daysUntilDeadline <= 7;
-          const isStartingSoon = daysUntilStart <= 14;
-          
+          const isStartingSoon = daysUntilStart <= 14 && daysUntilStart >= 0;
+
           return (
             <Card key={hackathon.id} className="group hover:shadow-lg transition-all duration-200 hover:-translate-y-1">
               <CardHeader>
@@ -274,7 +364,7 @@ export const Hackathons = () => {
                   </div>
                 </div>
               </CardHeader>
-              
+
               <CardContent className="space-y-4">
                 <div className="space-y-2">
                   <div className="flex items-center gap-2 text-muted-foreground">
@@ -291,7 +381,7 @@ export const Hackathons = () => {
                     <div className="flex items-center gap-2 text-muted-foreground">
                       <DollarSign className="h-4 w-4" />
                       <span className="text-sm">
-                        {hackathon.prizeCurrency}{hackathon.prizePool} Prize Pool
+                        {hackathon.prizeCurrency} {hackathon.prizePool} Prize Pool
                       </span>
                     </div>
                   )}
@@ -341,7 +431,7 @@ export const Hackathons = () => {
                           Registration Deadline
                         </p>
                         <p className={`text-xs ${isUrgent ? 'text-red-600' : 'text-blue-600'}`}>
-                          {new Date(hackathon.registrationDeadline).toLocaleDateString()} 
+                          {new Date(hackathon.registrationDeadline).toLocaleDateString()}
                           {isUrgent && ` (${daysUntilDeadline} days left!)`}
                         </p>
                       </div>
@@ -408,4 +498,3 @@ export const Hackathons = () => {
     </div>
   );
 };
-

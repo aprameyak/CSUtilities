@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Code, GraduationCap, Building2, HelpCircle, Briefcase, Trophy } from 'lucide-react';
