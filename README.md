@@ -1,116 +1,30 @@
-# CSUtilities - Computer Science Learning Platform
+# CSUtilities
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)](https://reactjs.org/)
-[![Next.js](https://img.shields.io/badge/Next.js-000000?logo=next.js&logoColor=white)](https://nextjs.org/)
+![Next.js](https://img.shields.io/badge/Next.js-000000?logo=next.js&logoColor=white&style=for-the-badge)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white&style=for-the-badge)
+![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB&style=for-the-badge)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?logo=tailwindcss&logoColor=white&style=for-the-badge)
 
-A comprehensive platform for Computer Science students and professionals to practice Data Structures & Algorithms, explore university rankings, and research tech company prestige.
+## About
+
+**CSUtilities** is a comprehensive platform for computer science students and professionals to practice DSA problems, explore university rankings, and research tech company prestige. Built with **Next.js** and **React**, it aggregates curated LeetCode problems with company tags, CS university rankings from CSRankings, and tech company prestige scores in one focused tool.
 
 ## Features
 
-### DSA Practice Hub
-- **Curated LeetCode Problems**: Hand-picked problems organized by difficulty and company tags
-- **Smart Filtering**: Search by problem name, topics, or filter by difficulty and company
-- **Direct Integration**: One-click access to LeetCode problems
-- **Company Tagging**: See which companies frequently ask specific problems
+- Curated LeetCode problems organized by difficulty with company tags showing which firms ask each question
+- Smart filtering by problem name, topic, difficulty level, and company
+- Top CS university rankings with global coverage, prestige scores, and direct links
+- Country-based university filtering spanning US, UK, Canada, and Switzerland
+- Tech company prestige rankings with scores, industry categorization, and headquarters data
+- Problem-to-company cross-referencing showing how many LeetCode problems each company uses
+- Clean, fast UI built on shadcn/ui and Radix UI primitives
 
-### University Rankings
-- **Top CS Universities**: Comprehensive rankings based on CSRankings data
-- **Global Coverage**: Universities from around the world
-- **Detailed Profiles**: Scores, locations, and direct website links
-- **Country Filtering**: Filter universities by country
+## Technology Stack
 
-### Company Rankings
-- **Tech Company Prestige**: Ranked by desirability and prestige scores
-- **Industry Categorization**: Filter by industry (Technology, Software, Fintech, etc.)
-- **Problem Integration**: See how many LeetCode problems each company uses
-- **Location Data**: Company headquarters and office locations
+- **Frontend**: Next.js, React, TypeScript, Tailwind CSS
+- **UI Components**: shadcn/ui (Radix UI)
+- **State Management**: TanStack React Query
 
-## Tech Stack
+## Deployment
 
-- **Frontend**: Next.js 16 with React 19 and TypeScript
-- **Styling**: Tailwind CSS with custom design system
-- **UI Components**: shadcn/ui (Radix UI primitives)
-- **State Management**: React Query
-- **Icons**: Lucide React
-- **SEO**: Next.js metadata API with structured data
-
-
-## Key Features
-
-### DSA Practice
-- **Curated Problems**: Classic LeetCode problems with company tags
-- **Difficulty Levels**: Easy, Medium, Hard with color coding
-- **Topic Tags**: Array, Hash Table, Dynamic Programming, etc.
-- **Company Integration**: See which companies ask each problem
-
-### University Rankings
-- **Top Universities**: MIT, Stanford, CMU, Berkeley, Harvard, etc.
-- **Global Rankings**: US, UK, Switzerland, Canada
-- **Score System**: 0-100 prestige scores
-- **Direct Links**: Visit university websites
-
-### Company Rankings
-- **Tech Giants**: Google, Apple, Microsoft, Meta, Amazon
-- **Emerging Companies**: Tesla, Stripe, Nvidia, Palantir
-- **Prestige Scores**: 83-98 range with visual indicators
-- **Problem Count**: Shows LeetCode problems per company
-
-## Development
-
-### Adding New Problems
-1. Edit `src/data/mockData.ts`
-2. Add new problem to `mockProblems` array
-3. Include company tags and difficulty level
-4. Add relevant topics
-
-### Adding Universities
-1. Add university data to `mockUniversities` array
-2. Include rank, country, score, and website
-3. Ensure proper ranking order
-
-### Adding Companies
-1. Add company data to `mockCompanies` array
-2. Include prestige score, industry, and location
-3. Link to existing LeetCode problems
-
-## Contributing
-
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
-
-### Quick Contribution Guide
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- **LeetCode** for problem content and structure
-- **CSRankings** for university ranking data
-- **shadcn/ui** for the excellent component library
-- **Next.js** for the fast, SEO-optimized framework
-- **Tailwind CSS** for the utility-first CSS framework
-
-## Support
-
-- **Issues**: [GitHub Issues](https://github.com/aprameyak/CSUtilities/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/aprameyak/CSUtilities/discussions)
-
-## Roadmap
-
-- [ ] **Real API Integration**: Replace mock data with live APIs
-- [ ] **User Authentication**: Login/signup functionality
-- [ ] **Progress Tracking**: Track DSA problem completion
-- [ ] **Advanced Analytics**: Charts and statistics
-- [ ] **Dark Mode**: Theme switching
-- [ ] **Mobile App**: React Native version
-- [ ] **Problem Solutions**: Add solution explanations
-- [ ] **Interview Prep**: Mock interview features
-
+Visit the live site at [https://cs-utilities.vercel.app](https://cs-utilities.vercel.app)
