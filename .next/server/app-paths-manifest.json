@@ -1,6 +1,11 @@
 {
   "/_global-error/page": "app/_global-error/page.js",
   "/_not-found/page": "app/_not-found/page.js",
+  "/api/companies/route": "app/api/companies/route.js",
+  "/api/hackathons/route": "app/api/hackathons/route.js",
+  "/api/internships/route": "app/api/internships/route.js",
+  "/api/problems/route": "app/api/problems/route.js",
+  "/api/universities/route": "app/api/universities/route.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
   "/opengraph-image/route": "app-edge-has-no-entrypoint",

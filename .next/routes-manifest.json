@@ -65,6 +65,36 @@
       "namedRegex": "^/_not\\-found(?:/)?$"
     },
     {
+      "page": "/api/companies",
+      "regex": "^/api/companies(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/companies(?:/)?$"
+    },
+    {
+      "page": "/api/hackathons",
+      "regex": "^/api/hackathons(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/hackathons(?:/)?$"
+    },
+    {
+      "page": "/api/internships",
+      "regex": "^/api/internships(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/internships(?:/)?$"
+    },
+    {
+      "page": "/api/problems",
+      "regex": "^/api/problems(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/problems(?:/)?$"
+    },
+    {
+      "page": "/api/universities",
+      "regex": "^/api/universities(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/universities(?:/)?$"
+    },
+    {
       "page": "/favicon.ico",
       "regex": "^/favicon\\.ico(?:/)?$",
       "routeKeys": {},
