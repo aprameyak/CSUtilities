@@ -9,7 +9,8 @@ import {
   Bug,
   Lightbulb,
   Heart,
-  Globe
+  Globe,
+  Users
 } from 'lucide-react';
 
 export const Support = () => {
