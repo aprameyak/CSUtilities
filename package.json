@@ -9,7 +9,7 @@
     "dev:all": "concurrently \"npm run dev\" \"npm run dev:admin\"",
     "build": "next build",
     "build:admin": "cd ../CSUtilitiesAdmin && npm run build",
-    "build:all": "npm run build && npm run build:admin",
+    "build:all": "npm run build",
     "start": "next start",
     "lint": "eslint .",
     "type-check": "tsc --noEmit",
