@@ -1,16 +1,15 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { 
-  Mail, 
-  Github, 
-  MessageCircle, 
-  ExternalLink, 
-  Bug, 
-  Lightbulb, 
+import {
+  Mail,
+  Github,
+  MessageCircle,
+  ExternalLink,
+  Bug,
+  Lightbulb,
   Heart,
-  Globe,
-  Users
+  Globe
 } from 'lucide-react';
 
 export const Support = () => {
@@ -37,7 +36,7 @@ export const Support = () => {
           Support & Contact
         </h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Need help or have suggestions? We're here to support you in your Computer Science journey.
+          Need help or have suggestions? We&apos;re here to support you in your Computer Science journey.
         </p>
       </div>
 
