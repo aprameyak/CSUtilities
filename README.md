@@ -1,6 +1,6 @@
 # CSUtilities
 
-A single-page reference site for computer science students: LeetCode problems tagged by company, CS university rankings, tech company rankings, and sample internship, new grad, and hackathon listings. Live at https://cs-utilities.vercel.app.
+A single-page reference site for computer science students: LeetCode problems tagged by company, CS university rankings, tech company rankings, and sample internship, new grad, and hackathon listings. Live at https://cs-utilities.aprameyak.workers.dev.
 
 ## Features
 
