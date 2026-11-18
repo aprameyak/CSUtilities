@@ -14,7 +14,7 @@ export const Navigation = ({ activeTab, onTabChange }: NavigationProps) => {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
         <div className="mr-8">
-          <h1 className="text-2xl font-bold bg-gradient-to-r from-tech-primary to-tech-accent bg-clip-text text-transparent">
+          <h1 className="text-2xl font-bold text-tech-primary">
             CS Utilities
           </h1>
         </div>

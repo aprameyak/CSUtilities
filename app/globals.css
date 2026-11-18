@@ -27,10 +27,6 @@
     --microsoft: 213 94% 50%;
     --apple: 0 0% 0%;
     
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--tech-primary)), hsl(var(--tech-accent)));
-    --gradient-card: linear-gradient(135deg, hsl(var(--background)), hsl(var(--card)));
-    
     /* Shadows */
     --shadow-tech: 0 4px 20px hsl(var(--tech-primary) / 0.15);
     --shadow-card: 0 2px 10px hsl(var(--foreground) / 0.1);

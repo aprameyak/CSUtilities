@@ -29,8 +29,8 @@ export const CompanyRankings = () => {
   }, [searchTerm, industryFilter]);
 
   const getRankBadgeColor = (rank: number) => {
-    if (rank <= 3) return 'bg-gradient-to-r from-yellow-400 to-yellow-600 text-white';
-    if (rank <= 10) return 'bg-gradient-to-r from-tech-primary to-tech-primary-light text-white';
+    if (rank <= 3) return 'text-white bg-yellow-600';
+    if (rank <= 10) return 'text-white bg-tech-primary';
     return 'bg-muted';
   };
 
@@ -43,7 +43,7 @@ export const CompanyRankings = () => {
   return (
     <div className="container mx-auto p-6 space-y-6">
       <div className="text-center space-y-4">
-        <h2 className="text-4xl font-bold bg-gradient-to-r from-tech-primary to-tech-accent bg-clip-text text-transparent">
+        <h2 className="text-4xl font-bold text-tech-primary">
           Company Prestige Rankings
         </h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -127,7 +127,7 @@ export const CompanyRankings = () => {
                 </div>
                 <div className="w-full bg-muted rounded-full h-2">
                   <div 
-                    className="bg-gradient-to-r from-tech-primary to-tech-accent h-2 rounded-full transition-all duration-300"
+                    className="h-2 rounded-full transition-all duration-300 bg-tech-primary"
                     style={{ width: `${company.prestigeScore}%` }}
                   />
                 </div>

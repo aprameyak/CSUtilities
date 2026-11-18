@@ -33,7 +33,7 @@ export const Support = () => {
   return (
     <div className="container mx-auto p-6 space-y-6">
       <div className="text-center space-y-4">
-        <h2 className="text-4xl font-bold bg-gradient-to-r from-tech-primary to-tech-accent bg-clip-text text-transparent">
+        <h2 className="text-4xl font-bold text-tech-primary">
           Support & Contact
         </h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
